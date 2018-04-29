@@ -24,6 +24,7 @@ class AddViewController: UIViewController {
             wordArray = saveData.array(forKey: "WORD") as! [Dictionary<String, String>]
         }
         
+        
     }
     
     override func didReceiveMemoryWarning() {
