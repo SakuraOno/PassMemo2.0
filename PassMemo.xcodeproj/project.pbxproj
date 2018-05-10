@@ -12,7 +12,6 @@
 		21007F172094448400EC0600 /* ListTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 21007F152094448400EC0600 /* ListTableViewCell.xib */; };
 		214DCEA32085AF3800E127BC /* AddViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 214DCEA22085AF3800E127BC /* AddViewController.swift */; };
 		214DCEA52085AFB000E127BC /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 214DCEA42085AFB000E127BC /* DetailViewController.swift */; };
-		214DCEA82085B6C300E127BC /* ListTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 214DCEA62085B6C300E127BC /* ListTableViewController.swift */; };
 		214DCEAB20932E6900E127BC /* passwordsetViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 214DCEAA20932E6900E127BC /* passwordsetViewController.swift */; };
 		21D99C93208480A500B2DCCE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21D99C92208480A500B2DCCE /* AppDelegate.swift */; };
 		21D99C95208480A500B2DCCE /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21D99C94208480A500B2DCCE /* ViewController.swift */; };
@@ -28,7 +27,6 @@
 		21007F152094448400EC0600 /* ListTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ListTableViewCell.xib; sourceTree = "<group>"; };
 		214DCEA22085AF3800E127BC /* AddViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddViewController.swift; sourceTree = "<group>"; };
 		214DCEA42085AFB000E127BC /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
-		214DCEA62085B6C300E127BC /* ListTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListTableViewController.swift; sourceTree = "<group>"; };
 		214DCEAA20932E6900E127BC /* passwordsetViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = passwordsetViewController.swift; sourceTree = "<group>"; };
 		21D99C8F208480A500B2DCCE /* PassMemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PassMemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		21D99C92208480A500B2DCCE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -75,7 +73,6 @@
 				214DCEAA20932E6900E127BC /* passwordsetViewController.swift */,
 				21D99C96208480A500B2DCCE /* Main.storyboard */,
 				21007F1220943C0B00EC0600 /* passwordenterViewController.swift */,
-				214DCEA62085B6C300E127BC /* ListTableViewController.swift */,
 				21007F142094448400EC0600 /* ListTableViewCell.swift */,
 				21007F152094448400EC0600 /* ListTableViewCell.xib */,
 				214DCEA42085AFB000E127BC /* DetailViewController.swift */,
@@ -164,7 +161,6 @@
 				21D99C95208480A500B2DCCE /* ViewController.swift in Sources */,
 				21007F1320943C0B00EC0600 /* passwordenterViewController.swift in Sources */,
 				214DCEA52085AFB000E127BC /* DetailViewController.swift in Sources */,
-				214DCEA82085B6C300E127BC /* ListTableViewController.swift in Sources */,
 				21007F162094448400EC0600 /* ListTableViewCell.swift in Sources */,
 				214DCEA32085AF3800E127BC /* AddViewController.swift in Sources */,
 				21D99C93208480A500B2DCCE /* AppDelegate.swift in Sources */,
