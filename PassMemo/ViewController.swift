@@ -6,15 +6,14 @@
 //  Copyright © 2018年 小野　櫻. All rights reserved.
 //
 
-import UIKit
+import UIKit;
+
 
 class ViewController: UIViewController {
     
     @IBAction func passWord (){
         
     }
-    
-    
     
     override func viewDidLoad() {
         super.viewDidLoad()

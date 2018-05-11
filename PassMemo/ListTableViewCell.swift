@@ -10,6 +10,8 @@ import UIKit
 
 class ListTableViewCell: UITableViewCell {
     
+    var wordArray: [Dictionary<String, String>] = []
+    
     @IBOutlet var nameLabel: UILabel!
     @IBOutlet var passwordLabel: UILabel!
 
