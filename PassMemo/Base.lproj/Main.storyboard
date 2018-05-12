@@ -30,7 +30,7 @@
                                     <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
                                 <connections>
-                                    <action selector="passWord" destination="1fJ-C6-ggU" eventType="touchUpInside" id="NOa-mn-9Y4"/>
+                                    <action selector="userset" destination="1fJ-C6-ggU" eventType="touchUpInside" id="EEo-fJ-9mG"/>
                                     <segue destination="VMy-8c-7Qn" kind="show" id="8ew-hg-5KD"/>
                                 </connections>
                             </button>
@@ -42,6 +42,7 @@
                                     <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
                                 <connections>
+                                    <action selector="start" destination="1fJ-C6-ggU" eventType="touchUpInside" id="iXP-jZ-dBT"/>
                                     <segue destination="BYZ-38-t0r" kind="show" id="fxc-lP-XgN"/>
                                 </connections>
                             </button>
@@ -69,6 +70,7 @@
                             <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="wPt-eH-MIL">
                                 <rect key="frame" x="157" y="181" width="170" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <accessibility key="accessibilityConfiguration" identifier="userName"/>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
@@ -97,6 +99,7 @@
                             <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Mes-Fw-r7I">
                                 <rect key="frame" x="157" y="261" width="170" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <accessibility key="accessibilityConfiguration" identifier="userPassword"/>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
@@ -104,11 +107,11 @@
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6o1-FQ-ebN">
                                 <rect key="frame" x="137" y="359" width="100" height="36"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <accessibility key="accessibilityConfiguration" identifier="isUserLoggedIn"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                 <state key="normal" title="ログイン"/>
                                 <connections>
                                     <action selector="loginButtonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="PC6-Z1-3nf"/>
-                                    <segue destination="tMY-3W-RAA" kind="show" id="CLR-ms-llB"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -118,6 +121,7 @@
                     <connections>
                         <outlet property="userNameTextField" destination="wPt-eH-MIL" id="jF6-oE-2Nt"/>
                         <outlet property="userPasswordTextField" destination="Mes-Fw-r7I" id="tzF-Ry-xmd"/>
+                        <segue destination="wVf-dB-6Ih" kind="show" identifier="next" id="bRN-gy-JXH"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -156,7 +160,6 @@
                                 </state>
                                 <connections>
                                     <action selector="registerButtonTapped:" destination="VMy-8c-7Qn" eventType="touchUpInside" id="o3Y-0W-EA5"/>
-                                    <segue destination="1fJ-C6-ggU" kind="show" id="OKO-V6-ZlT"/>
                                 </connections>
                             </button>
                             <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="c3w-pG-Lv1">
@@ -201,40 +204,50 @@
                     <connections>
                         <outlet property="repeatPasswordTextField" destination="VUx-Z6-T9T" id="52r-SG-ibx"/>
                         <outlet property="userNameTextField" destination="cCi-CE-D0i" id="7gV-oO-fHB"/>
-                        <outlet property="userPasswordTextField" destination="cCi-CE-D0i" id="1Ar-Ji-85U"/>
+                        <outlet property="userPasswordTextField" destination="c3w-pG-Lv1" id="ojU-dQ-1Y0"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fdv-10-KCm" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-1388" y="1089"/>
         </scene>
-        <!--List Table View Controller-->
-        <scene sceneID="9S0-KW-Xa5">
+        <!--パスワード一覧-->
+        <scene sceneID="E2J-D0-bjm">
             <objects>
-                <tableViewController id="TZj-MT-rB2" customClass="ListTableViewController" customModule="PassMemo" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="Sakura0611" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="TfT-av-ySQ">
+                <tableViewController id="5aS-dO-eYe" customClass="ListTableViewController" customModule="PassMemo" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="JLp-Yw-7d2">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="70" id="xAa-0G-hPU">
+                                <rect key="frame" x="0.0" y="28" width="375" height="70"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="xAa-0G-hPU" id="6fP-6p-dJr">
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="69.5"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
                         <connections>
-                            <outlet property="dataSource" destination="TZj-MT-rB2" id="mbq-0B-aYa"/>
-                            <outlet property="delegate" destination="TZj-MT-rB2" id="vRQ-2j-R1H"/>
+                            <outlet property="dataSource" destination="5aS-dO-eYe" id="Nzm-Rm-LdQ"/>
+                            <outlet property="delegate" destination="5aS-dO-eYe" id="b2x-Th-RDa"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" id="ePp-GE-xkG">
-                        <barButtonItem key="rightBarButtonItem" title="＋" id="D7A-Hr-Poo">
+                    <navigationItem key="navigationItem" title="パスワード一覧" id="31n-o3-umK">
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="uQN-lZ-6eA">
                             <connections>
-                                <segue destination="43q-gq-p5t" kind="show" id="pZg-NP-OJV"/>
+                                <segue destination="43q-gq-p5t" kind="show" id="gha-5e-Hbk"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
                     <connections>
-                        <segue destination="8wv-Bo-euB" kind="show" id="HGO-Dt-TCb"/>
+                        <segue destination="8wv-Bo-euB" kind="show" id="0E1-Fw-j9e"/>
                     </connections>
                 </tableViewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="4CX-2G-cHa" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="yH5-bf-U6l" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1892" y="133.5832083958021"/>
+            <point key="canvasLocation" x="3066" y="134"/>
         </scene>
         <!--Add View Controller-->
         <scene sceneID="aFF-DU-d2f">
@@ -303,6 +316,7 @@
                                 </state>
                                 <connections>
                                     <action selector="saveWord" destination="43q-gq-p5t" eventType="touchUpInside" id="9Z0-uP-aw3"/>
+                                    <segue destination="5aS-dO-eYe" kind="show" id="asH-AV-yhT"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -370,35 +384,37 @@
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
-                        <color key="backgroundColor" red="0.85113711889999999" green="0.94978745360000005" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <viewLayoutGuide key="safeArea" id="WgZ-81-w0L"/>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4gY-kC-2sP" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2978" y="186"/>
+            <point key="canvasLocation" x="3916" y="185.75712143928038"/>
         </scene>
         <!--Navigation Controller-->
-        <scene sceneID="IIa-Yo-49V">
+        <scene sceneID="h4z-xH-h3p">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="tMY-3W-RAA" sceneMemberID="viewController">
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="wVf-dB-6Ih" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationItem key="navigationItem" id="6rs-IM-lHw"/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="naI-cO-VUx">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="ZXd-S6-0af">
                         <rect key="frame" x="0.0" y="20" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
-                        <segue destination="TZj-MT-rB2" kind="relationship" relationship="rootViewController" id="tAB-qE-EWz"/>
+                        <segue destination="5aS-dO-eYe" kind="relationship" relationship="rootViewController" id="aDP-e4-J2d"/>
                     </connections>
                 </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="i3T-xM-HPc" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="18l-3Y-bxR" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="952.79999999999995" y="133.5832083958021"/>
+            <point key="canvasLocation" x="1957.5999999999999" y="133.5832083958021"/>
         </scene>
     </scenes>
     <resources>
         <image name="アートボード 1-100.jpg" width="613" height="330"/>
     </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="asH-AV-yhT"/>
+    </inferredMetricsTieBreakers>
 </document>

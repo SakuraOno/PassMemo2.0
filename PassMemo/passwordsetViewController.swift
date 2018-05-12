@@ -13,14 +13,10 @@ class passwordsetViewController: UIViewController {
     @IBOutlet weak var userNameTextField: UITextField!
     @IBOutlet weak var userPasswordTextField: UITextField!
     @IBOutlet weak var repeatPasswordTextField: UITextField!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
-    }
-    
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
     
     @IBAction func registerButtonTapped(_ sender: Any) {
@@ -37,36 +33,46 @@ class passwordsetViewController: UIViewController {
         }
         
         //パスワード一致確認
-        if(userPassword != userRepeatPassword)
-        {
+        if(userPassword == userRepeatPassword) {
+            // データ登録
+            UserDefaults.standard.set(userName, forKey:"userName")
+            UserDefaults.standard.set(userPassword, forKey:"userPassword")
+            //UserDefaults.standard.synchronize();
+            
+            // メッセージアラートなど
+            let myAlert = UIAlertController(title:"Alert", message: "登録完了", preferredStyle:  UIAlertControllerStyle.alert)
+            let okAction = UIAlertAction(title:"OK", style: UIAlertActionStyle.default){
+                action in self.dismiss(animated: true, completion:nil)
+            }
+            
+            myAlert.addAction(okAction)
+            self.present(myAlert, animated:true,completion:nil)
+      
+        } else {
             displayMyAlertMessage(userMessage: "パスワードが一致していません。")
             return
         }
         
-        // データ登録
-        UserDefaults.standard.set(userName, forKey:"userName")
-        UserDefaults.standard.set(userPassword, forKey:"userPassword")
-        //UserDefaults.standard.synchronize();
-        
-        // メッセージアラートなど
-        let myAlert = UIAlertController(title:"Alert", message: "登録完了", preferredStyle:  UIAlertControllerStyle.alert)
-        let okAction = UIAlertAction(title:"OK", style: UIAlertActionStyle.default){
-            action in self.dismiss(animated: true, completion:nil)
-        }
-        myAlert.addAction(okAction)
-        self.present(myAlert, animated:true,completion:nil)
+
         
     }
     
     
     func displayMyAlertMessage(userMessage: String){
         
-        let myAlert = UIAlertController(title:"Alert", message: userMessage, preferredStyle:  UIAlertControllerStyle.alert)
+        let myAlert = UIAlertController(title:"Alert", message: userMessage, preferredStyle: .alert)
         let okAction = UIAlertAction(title:"OK", style: UIAlertActionStyle.default, handler:nil)
-        myAlert.addAction(okAction);
-        self.present(myAlert,animated:true, completion:nil)
+        myAlert.addAction(okAction)
+        self.present(myAlert, animated: true, completion:nil)
         
     }
+    
+    
+    override func didReceiveMemoryWarning() {
+        super.didReceiveMemoryWarning()
+        // Dispose of any resources that can be recreated.
+    }
+    
     
 }
 

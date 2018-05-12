@@ -26,12 +26,6 @@ class AddViewController: UIViewController {
         
         
     }
-    
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        
-    }
-    
     @IBAction func saveWord() {
         
         let wordDictionary = ["name": titleTextField.text!, "password": passwordTextField.text!,"memo":memoTexetField.text!]
@@ -60,18 +54,11 @@ class AddViewController: UIViewController {
         wordArray.append(wordDictionary)
         saveData.set(wordArray, forKey: "WORD")
         
-        let alert = UIAlertController(
-            title: "保存完了",
-            message: "パスワードの登録が完了しました",
-            preferredStyle: .alert
-        )
-        alert.addAction(UIAlertAction(
-            title: "完了",
-            style: .default,
-            handler: {(action) in
-                self.navigationController?.popToRootViewController(animated: true)
-        }
-        ))
+        let alert = UIAlertController(title: "保存完了", message: "パスワードの登録が完了しました", preferredStyle: .alert)
+      
+        //何もしない処理すらも書かない
+        alert.addAction(UIAlertAction(title: "完了", style: .default))
+        
         
         self.present(alert, animated: true, completion: nil)
         titleTextField.text = ""
@@ -80,7 +67,14 @@ class AddViewController: UIViewController {
         
         
     }
-}
+    
+    override func didReceiveMemoryWarning() {
+        super.didReceiveMemoryWarning()
+        
+    }
+    
+    
+
 
 
 
@@ -94,4 +88,4 @@ class AddViewController: UIViewController {
     }
     */
 
-
+}

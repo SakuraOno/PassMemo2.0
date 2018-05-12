@@ -11,7 +11,10 @@ import UIKit;
 
 class ViewController: UIViewController {
     
-    @IBAction func passWord (){
+    @IBAction func userset (){
+        
+    }
+    @IBAction func start(){
         
     }
     

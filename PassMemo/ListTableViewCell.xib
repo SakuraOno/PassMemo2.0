@@ -42,6 +42,7 @@
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <connections>
+                <outlet property="nameLabel" destination="ZIB-7M-RfH" id="BHY-WY-3n1"/>
                 <outlet property="passwordLabel" destination="xJG-sh-E6z" id="8aq-ys-19g"/>
             </connections>
         </tableViewCell>
