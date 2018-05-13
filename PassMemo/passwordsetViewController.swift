@@ -14,6 +14,8 @@ class passwordsetViewController: UIViewController {
     @IBOutlet weak var userPasswordTextField: UITextField!
     @IBOutlet weak var repeatPasswordTextField: UITextField!
     
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
@@ -41,7 +43,7 @@ class passwordsetViewController: UIViewController {
             
             // メッセージアラートなど
             let myAlert = UIAlertController(title:"Alert", message: "登録完了", preferredStyle:  UIAlertControllerStyle.alert)
-            let okAction = UIAlertAction(title:"OK", style: UIAlertActionStyle.default){
+            let okAction = UIAlertAction(title:"OK", style: UIAlertActionStyle.default) {
                 action in self.dismiss(animated: true, completion:nil)
             }
             
@@ -53,10 +55,12 @@ class passwordsetViewController: UIViewController {
             return
         }
         
-
-        
     }
     
+     @IBAction func backButtonTapped(_ sender: Any) {
+        self.dismiss(animated: true, completion: nil)
+        
+    }
     
     func displayMyAlertMessage(userMessage: String){
         
@@ -66,6 +70,12 @@ class passwordsetViewController: UIViewController {
         self.present(myAlert, animated: true, completion:nil)
         
     }
+    
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        self.view.endEditing(true)
+        
+    }
+    
     
     
     override func didReceiveMemoryWarning() {

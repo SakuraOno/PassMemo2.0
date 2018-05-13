@@ -24,20 +24,26 @@ class ListTableViewController: UITableViewController {
         
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem
+        
+        tableView.delegate = self
+        tableView.dataSource = self
+    
     }
     
     //セクション数を指定
     override func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }
+    
     //セルの個数を指定
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return wordArray.count
     }
     
-    //セルの中身の表示の仕方設定
+    //セルの中身の表示の内容設定
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)as! ListTableViewCell
+        
+        let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! ListTableViewCell
         
         let nowIndexPathDictionary = wordArray[indexPath.row]
         
@@ -45,73 +51,68 @@ class ListTableViewController: UITableViewController {
         cell.passwordLabel.text = nowIndexPathDictionary["password"]
         
         return cell
-        
     }
     
+    //タップした時の処理
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
+        // 次の画面へ移動
+        performSegue(withIdentifier: "next", sender: wordArray[indexPath.row])
+    }
+    
+    //prepareは遷移するときにデータを渡すメソッド
+    //funcって書いてるのはメソッド
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        
+        //
+        let detailVC = segue.destination as! DetailViewController
+        
+        // ラベルのインスタンス作成のため
+        detailVC.nameLabel.text = (sender as! Dictionary<String, String>)["name"]
+        detailVC.passwordLabel.text = (sender as! Dictionary<String, String>)["password"]
+         detailVC.memoLabel.text = (sender as! Dictionary<String, String>)["memo"]
+    
+    }
+    
+    func ListtableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
+        if editingStyle == .delete {
+            wordArray.remove(at: indexPath.row)
+            tableView.deleteRows(at: [indexPath], with: .fade)
+        }
+    }
+    
+    override func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
+        
+        let deleteButton: UITableViewRowAction = UITableViewRowAction(style: .normal, title: "削除") { (action, index) -> Void in
+            self.saveData.removeObject(forKey: "PassMemo")
+            
+            self.wordArray.remove(at: indexPath.row)
+            self.saveData.set(self.wordArray, forKey: "PassMemo")
+            tableView.deleteRows(at: [indexPath], with: .fade)
+        
+        }
+        
+        deleteButton.backgroundColor = UIColor.red
+        
+        return [deleteButton]
+    }
+    
+        
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
-        if saveData.array(forKey: "WORD") != nil {
-            wordArray = saveData.array(forKey: "WORD") as! [Dictionary<String, String>]
+        
+        if saveData.array(forKey: "PassMemo") != nil {
+            
+            wordArray = saveData.array(forKey: "PassMemo") as! [Dictionary<String, String>]
+            
         }
         
         tableView.reloadData()
         
     }
-    
-    
-    /*
-     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-     let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)
-     
-     // Configure the cell...
-     
-     return cell
-     }
-     */
-    
-    /*
-     // Override to support conditional editing of the table view.
-     override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
-     // Return false if you do not want the specified item to be editable.
-     return true
-     }
-     */
-    
-    /*
-     // Override to support editing the table view.
-     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
-     if editingStyle == .delete {
-     // Delete the row from the data source
-     tableView.deleteRows(at: [indexPath], with: .fade)
-     } else if editingStyle == .insert {
-     // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-     }
-     }
-     */
-    
-    /*
-     // Override to support rearranging the table view.
-     override func tableView(_ tableView: UITableView, moveRowAt fromIndexPath: IndexPath, to: IndexPath) {
-     
-     }
-     */
-    
-    /*
-     // Override to support conditional rearranging of the table view.
-     override func tableView(_ tableView: UITableView, canMoveRowAt indexPath: IndexPath) -> Bool {
-     // Return false if you do not want the item to be re-orderable.
-     return true
-     }
-     */
-    
-    /*
-     // MARK: - Navigation
-     
-     // In a storyboard-based application, you will often want to do a little preparation before navigation
-     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-     // Get the new view controller using segue.destinationViewController.
-     // Pass the selected object to the new view controller.
-     }
-     */
-    
+    override func didReceiveMemoryWarning() {
+        super.didReceiveMemoryWarning()
+        // Dispose of any resources that can be recreated.
+    }
+
 }

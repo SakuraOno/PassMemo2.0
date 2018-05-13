@@ -9,7 +9,7 @@
 import UIKit
 
 
-class passwordenterViewController: UIViewController {
+class passwordenterViewController: UIViewController, UITextFieldDelegate {
     
     
     @IBOutlet weak var userNameTextField: UITextField!
@@ -28,10 +28,33 @@ class passwordenterViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
+//
+//        userNameTextField.becomeFirstResponder()
+//     //   userNameTextField.resighFirstResponder()
+//
+//        userPasswordTextField.becomeFirstResponder()
+//     //   userPasswordTextField.resighFirstResponder()
+//
+ 
+        
+        // デリゲート（移譲）を指定
+        self.userNameTextField.delegate = self
+        self.userPasswordTextField.delegate = self
+        
+    }
+    
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        self.view.endEditing(true)
+        
+    }
+    
+    
+    @IBAction func backbuttonTapped(_sender: Any){
+        self.dismiss(animated: true, completion: nil)
     }
     
     @IBAction func loginButtonTapped(_ sender: Any) {
-        //werty
+    
         userName = userNameTextField.text
         userPassword = userPasswordTextField.text
         userNameStored = UserDefaults.standard.string(forKey: "userName")
@@ -104,6 +127,17 @@ class passwordenterViewController: UIViewController {
         }
     }
     
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+
+        userNameTextField.resignFirstResponder()
+        userPasswordTextField.resignFirstResponder()
+        return true
+        
+    }
+
+
+    
+
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.

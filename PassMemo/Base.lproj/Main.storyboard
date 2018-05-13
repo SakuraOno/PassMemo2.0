@@ -74,6 +74,9 @@
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <action selector="focusOut:" destination="BYZ-38-t0r" eventType="editingDidEndOnExit" id="7nH-aj-X5Z"/>
+                                </connections>
                             </textField>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="ユーザー情報を入力してください" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="p3f-Ic-DTT">
                                 <rect key="frame" x="57" y="104" width="260" height="21"/>
@@ -102,7 +105,7 @@
                                 <accessibility key="accessibilityConfiguration" identifier="userPassword"/>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
+                                <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6o1-FQ-ebN">
                                 <rect key="frame" x="137" y="359" width="100" height="36"/>
@@ -112,6 +115,15 @@
                                 <state key="normal" title="ログイン"/>
                                 <connections>
                                     <action selector="loginButtonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="PC6-Z1-3nf"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TzZ-U6-NlX">
+                                <rect key="frame" x="137" y="442" width="100" height="36"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <state key="normal" title="戻る"/>
+                                <connections>
+                                    <action selector="backbuttonTappedWith_sender:" destination="BYZ-38-t0r" eventType="touchUpInside" id="GsX-OZ-a5V"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -167,14 +179,14 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
+                                <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
                             </textField>
                             <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="VUx-Z6-T9T">
                                 <rect key="frame" x="176" y="311" width="151" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
+                                <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
                             </textField>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="ユーザー名" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XiW-ZL-RZq">
                                 <rect key="frame" x="40" y="181" width="81" height="21"/>
@@ -197,6 +209,14 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="amW-yg-r31">
+                                <rect key="frame" x="113" y="495" width="130" height="44"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="戻る"/>
+                                <connections>
+                                    <action selector="backButtonTapped:" destination="VMy-8c-7Qn" eventType="touchUpInside" id="tRm-fD-TyI"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <viewLayoutGuide key="safeArea" id="tIr-df-1Oa"/>
@@ -209,7 +229,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fdv-10-KCm" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1388" y="1089"/>
+            <point key="canvasLocation" x="-1388" y="1088.9055472263869"/>
         </scene>
         <!--パスワード一覧-->
         <scene sceneID="E2J-D0-bjm">
@@ -219,16 +239,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="70" id="xAa-0G-hPU">
-                                <rect key="frame" x="0.0" y="28" width="375" height="70"/>
-                                <autoresizingMask key="autoresizingMask"/>
-                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="xAa-0G-hPU" id="6fP-6p-dJr">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="69.5"/>
-                                    <autoresizingMask key="autoresizingMask"/>
-                                </tableViewCellContentView>
-                            </tableViewCell>
-                        </prototypes>
                         <connections>
                             <outlet property="dataSource" destination="5aS-dO-eYe" id="Nzm-Rm-LdQ"/>
                             <outlet property="delegate" destination="5aS-dO-eYe" id="b2x-Th-RDa"/>
@@ -242,7 +252,7 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
-                        <segue destination="8wv-Bo-euB" kind="show" id="0E1-Fw-j9e"/>
+                        <segue destination="8wv-Bo-euB" kind="show" identifier="next" id="0E1-Fw-j9e"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="yH5-bf-U6l" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -316,7 +326,6 @@
                                 </state>
                                 <connections>
                                     <action selector="saveWord" destination="43q-gq-p5t" eventType="touchUpInside" id="9Z0-uP-aw3"/>
-                                    <segue destination="5aS-dO-eYe" kind="show" id="asH-AV-yhT"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -387,6 +396,11 @@
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <viewLayoutGuide key="safeArea" id="WgZ-81-w0L"/>
                     </view>
+                    <connections>
+                        <outlet property="memoLabel" destination="FIy-z7-Dnp" id="RZD-xp-gFd"/>
+                        <outlet property="nameLabel" destination="OGe-XX-5Em" id="5HM-fq-icv"/>
+                        <outlet property="passwordLabel" destination="Tz0-rB-oop" id="qVC-rZ-Qq9"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4gY-kC-2sP" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -414,7 +428,4 @@
     <resources>
         <image name="アートボード 1-100.jpg" width="613" height="330"/>
     </resources>
-    <inferredMetricsTieBreakers>
-        <segue reference="asH-AV-yhT"/>
-    </inferredMetricsTieBreakers>
 </document>

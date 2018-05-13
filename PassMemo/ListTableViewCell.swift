@@ -10,8 +10,6 @@ import UIKit
 
 class ListTableViewCell: UITableViewCell {
     
-    var wordArray: [Dictionary<String, String>] = []
-    
     @IBOutlet var nameLabel: UILabel!
     @IBOutlet var passwordLabel: UILabel!
 
@@ -20,7 +18,7 @@ class ListTableViewCell: UITableViewCell {
         // Initialization code
     }
     
-
+    
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
 

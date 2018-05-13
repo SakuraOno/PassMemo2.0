@@ -11,16 +11,15 @@
 		21007F162094448400EC0600 /* ListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21007F142094448400EC0600 /* ListTableViewCell.swift */; };
 		21007F172094448400EC0600 /* ListTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 21007F152094448400EC0600 /* ListTableViewCell.xib */; };
 		214DCEA32085AF3800E127BC /* AddViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 214DCEA22085AF3800E127BC /* AddViewController.swift */; };
-		214DCEA52085AFB000E127BC /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 214DCEA42085AFB000E127BC /* DetailViewController.swift */; };
 		214DCEAB20932E6900E127BC /* passwordsetViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 214DCEAA20932E6900E127BC /* passwordsetViewController.swift */; };
 		219B799720A45F1F002423B0 /* ListTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 219B799620A45F1F002423B0 /* ListTableViewController.swift */; };
 		21C165AF20A462F700330AA4 /* アートボード 1-100.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 21C165AE20A462F700330AA4 /* アートボード 1-100.jpg */; };
+		21C165CF20A85CBB00330AA4 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21C165CE20A85CBB00330AA4 /* DetailViewController.swift */; };
 		21D99C93208480A500B2DCCE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21D99C92208480A500B2DCCE /* AppDelegate.swift */; };
 		21D99C95208480A500B2DCCE /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21D99C94208480A500B2DCCE /* ViewController.swift */; };
 		21D99C98208480A500B2DCCE /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 21D99C96208480A500B2DCCE /* Main.storyboard */; };
 		21D99C9A208480AF00B2DCCE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 21D99C99208480AF00B2DCCE /* Assets.xcassets */; };
 		21D99C9D208480AF00B2DCCE /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 21D99C9B208480AF00B2DCCE /* LaunchScreen.storyboard */; };
-		21D99CA5208499F200B2DCCE /* OKViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21D99CA4208499F200B2DCCE /* OKViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,10 +27,10 @@
 		21007F142094448400EC0600 /* ListTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListTableViewCell.swift; sourceTree = "<group>"; };
 		21007F152094448400EC0600 /* ListTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ListTableViewCell.xib; sourceTree = "<group>"; };
 		214DCEA22085AF3800E127BC /* AddViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddViewController.swift; sourceTree = "<group>"; };
-		214DCEA42085AFB000E127BC /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 		214DCEAA20932E6900E127BC /* passwordsetViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = passwordsetViewController.swift; sourceTree = "<group>"; };
 		219B799620A45F1F002423B0 /* ListTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListTableViewController.swift; sourceTree = "<group>"; };
 		21C165AE20A462F700330AA4 /* アートボード 1-100.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "アートボード 1-100.jpg"; sourceTree = "<group>"; };
+		21C165CE20A85CBB00330AA4 /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 		21D99C8F208480A500B2DCCE /* PassMemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PassMemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		21D99C92208480A500B2DCCE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		21D99C94208480A500B2DCCE /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -39,7 +38,6 @@
 		21D99C99208480AF00B2DCCE /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		21D99C9C208480AF00B2DCCE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		21D99C9E208480AF00B2DCCE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		21D99CA4208499F200B2DCCE /* OKViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OKViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -80,13 +78,12 @@
 				21007F142094448400EC0600 /* ListTableViewCell.swift */,
 				21007F152094448400EC0600 /* ListTableViewCell.xib */,
 				219B799620A45F1F002423B0 /* ListTableViewController.swift */,
-				214DCEA42085AFB000E127BC /* DetailViewController.swift */,
 				214DCEA22085AF3800E127BC /* AddViewController.swift */,
-				21D99CA4208499F200B2DCCE /* OKViewController.swift */,
 				21C165AE20A462F700330AA4 /* アートボード 1-100.jpg */,
 				21D99C99208480AF00B2DCCE /* Assets.xcassets */,
 				21D99C9B208480AF00B2DCCE /* LaunchScreen.storyboard */,
 				21D99C9E208480AF00B2DCCE /* Info.plist */,
+				21C165CE20A85CBB00330AA4 /* DetailViewController.swift */,
 			);
 			path = PassMemo;
 			sourceTree = "<group>";
@@ -164,15 +161,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				21D99CA5208499F200B2DCCE /* OKViewController.swift in Sources */,
 				21D99C95208480A500B2DCCE /* ViewController.swift in Sources */,
 				21007F1320943C0B00EC0600 /* passwordenterViewController.swift in Sources */,
-				214DCEA52085AFB000E127BC /* DetailViewController.swift in Sources */,
 				21007F162094448400EC0600 /* ListTableViewCell.swift in Sources */,
 				214DCEA32085AF3800E127BC /* AddViewController.swift in Sources */,
 				219B799720A45F1F002423B0 /* ListTableViewController.swift in Sources */,
 				21D99C93208480A500B2DCCE /* AppDelegate.swift in Sources */,
 				214DCEAB20932E6900E127BC /* passwordsetViewController.swift in Sources */,
+				21C165CF20A85CBB00330AA4 /* DetailViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -316,18 +312,19 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_IDENTITY = "iPhone Distribution";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Manual;
 				DEVELOPMENT_TEAM = 2K446D59RQ;
 				INFOPLIST_FILE = PassMemo/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.SakuraOno.PassMemo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "aa71b2c6-29ae-4fd5-a70b-02de65a8c227";
-				PROVISIONING_PROFILE_SPECIFIER = "L10-Ono-Distribution";
+				PROVISIONING_PROFILE = "940fd88a-bea7-4662-a5df-a1ad8a547e97";
+				PROVISIONING_PROFILE_SPECIFIER = "L10-OnoSakura-Developement";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -341,6 +338,7 @@
 				CODE_SIGN_STYLE = Manual;
 				DEVELOPMENT_TEAM = 2K446D59RQ;
 				INFOPLIST_FILE = PassMemo/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
