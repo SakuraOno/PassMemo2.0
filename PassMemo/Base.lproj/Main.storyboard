@@ -31,7 +31,7 @@
                                 </state>
                                 <connections>
                                     <action selector="userset" destination="1fJ-C6-ggU" eventType="touchUpInside" id="EEo-fJ-9mG"/>
-                                    <segue destination="VMy-8c-7Qn" kind="show" id="8ew-hg-5KD"/>
+                                    <segue destination="VMy-8c-7Qn" kind="presentation" id="rwv-wJ-co5"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OPp-bP-Nmh">
@@ -42,8 +42,8 @@
                                     <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
                                 <connections>
-                                    <action selector="start" destination="1fJ-C6-ggU" eventType="touchUpInside" id="iXP-jZ-dBT"/>
-                                    <segue destination="BYZ-38-t0r" kind="show" id="fxc-lP-XgN"/>
+                                    <action selector="start:" destination="1fJ-C6-ggU" eventType="touchUpInside" id="s0C-ye-8lY"/>
+                                    <segue destination="BYZ-38-t0r" kind="presentation" identifier="aaa" id="pnN-xt-qYc"/>
                                 </connections>
                             </button>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="アートボード 1-100.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="PZn-AC-aJo">
@@ -74,9 +74,6 @@
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
-                                <connections>
-                                    <action selector="focusOut:" destination="BYZ-38-t0r" eventType="editingDidEndOnExit" id="7nH-aj-X5Z"/>
-                                </connections>
                             </textField>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="ユーザー情報を入力してください" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="p3f-Ic-DTT">
                                 <rect key="frame" x="57" y="104" width="260" height="21"/>
@@ -143,7 +140,7 @@
         <!--Passwordset View Controller-->
         <scene sceneID="E50-Gj-dKA">
             <objects>
-                <viewController id="VMy-8c-7Qn" customClass="passwordsetViewController" customModule="PassMemo" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="register" useStoryboardIdentifierAsRestorationIdentifier="YES" id="VMy-8c-7Qn" customClass="passwordsetViewController" customModule="PassMemo" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Eyb-JF-iMt">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -245,6 +242,11 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="パスワード一覧" id="31n-o3-umK">
+                        <barButtonItem key="leftBarButtonItem" title="タイトルへ" id="HUb-Xc-5LF">
+                            <connections>
+                                <segue destination="1fJ-C6-ggU" kind="presentation" id="xZB-Kz-Ho2"/>
+                            </connections>
+                        </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="uQN-lZ-6eA">
                             <connections>
                                 <segue destination="43q-gq-p5t" kind="show" identifier="toAdd" id="gha-5e-Hbk"/>

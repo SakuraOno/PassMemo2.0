@@ -11,6 +11,11 @@ import UIKit
 
 class passwordenterViewController: UIViewController, UITextFieldDelegate {
     
+    var isRegistered: Bool! {
+        get {
+            return (UIApplication.shared.delegate as! AppDelegate).isRegistered
+        }
+    }
     
     @IBOutlet weak var userNameTextField: UITextField!
     @IBOutlet weak var userPasswordTextField: UITextField!
@@ -34,8 +39,6 @@ class passwordenterViewController: UIViewController, UITextFieldDelegate {
 //
 //        userPasswordTextField.becomeFirstResponder()
 //     //   userPasswordTextField.resighFirstResponder()
-//
- 
         
         // デリゲート（移譲）を指定
         self.userNameTextField.delegate = self
@@ -43,11 +46,52 @@ class passwordenterViewController: UIViewController, UITextFieldDelegate {
         
     }
     
-    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-        self.view.endEditing(true)
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        if isRegistered {
+            return
+        }
+        
+        if UserDefaults.standard.string(forKey: "userName") == nil || UserDefaults.standard.string(forKey: "userPassword") == nil {
+            
+            if self.presentedViewController is passwordsetViewController {
+                return
+            }
+            
+            let alert = UIAlertController(title: "アカウントがありません", message: "ユーザー登録をしてください", preferredStyle: .alert)
+            
+            alert.addAction(UIAlertAction(title: "cancel", style: .default, handler: {
+                (action) in
+                self.dismiss(animated: true, completion: nil)
+                
+            }))
+            
+            alert.addAction(UIAlertAction(title: "OK", style: .default, handler:
+                { (action) in
+                    
+                    let registerAccountViewCntroller = self.storyboard?.instantiateViewController(withIdentifier: "register") as! passwordsetViewController
+                    self.present(registerAccountViewCntroller, animated: true, completion: nil)
+                    
+            }))
+            
+            self.present(alert, animated: true, completion: nil)
+            
+        }
         
     }
     
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        
+        
+        
+        
+    }
+    
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        self.view.endEditing(true)
+    }
     
     @IBAction func backbuttonTapped(_sender: Any){
         self.dismiss(animated: true, completion: nil)
@@ -62,6 +106,7 @@ class passwordenterViewController: UIViewController, UITextFieldDelegate {
         
         if userName.isEmpty {
             let enterAlert = UIAlertController(title:"Alert", message: "必要事項を入力してください", preferredStyle:  UIAlertControllerStyle.alert)
+            
             let okAction = UIAlertAction(title:"OK", style: UIAlertActionStyle.default){
                 
                 //自販機で考えると引数はお金でジュースは戻り値byモンスター
@@ -69,62 +114,68 @@ class passwordenterViewController: UIViewController, UITextFieldDelegate {
                 action -> Void in
                 
             }
+            
             enterAlert.addAction(okAction)
             self.present(enterAlert, animated:true,completion:nil)
             
         }
+ 
         
-        if userPassword.isEmpty {
-            let enterAlert = UIAlertController(title:"Alert", message: "必要事項を入力してください", preferredStyle:  UIAlertControllerStyle.alert)
-            let okAction = UIAlertAction(title:"OK", style: UIAlertActionStyle.default){
+        func viewDidAppear () {
+            if userPassword.isEmpty {
+                let enterAlert = UIAlertController(title:"Alert", message: "必要事項を入力してください", preferredStyle:  UIAlertControllerStyle.alert)
+                let okAction = UIAlertAction(title:"OK", style: UIAlertActionStyle.default){
+                    
+                    action -> Void in
+                    
+                }
                 
-                action -> Void in
+                enterAlert.addAction(okAction)
+                self.present(enterAlert, animated:true,completion:nil)
                 
             }
-            enterAlert.addAction(okAction)
-            self.present(enterAlert, animated:true,completion:nil)
             
-        }
-        
-        if userName != userNameStored {
-            let enterAlert = UIAlertController(title:"Alert", message: "入力事項が違います", preferredStyle:  UIAlertControllerStyle.alert)
-            let okAction = UIAlertAction(title:"OK", style: UIAlertActionStyle.default){
-                
-                action -> Void in
+            if userName != userNameStored {
+                let enterAlert = UIAlertController(title:"Alert", message: "入力事項が違います", preferredStyle:  UIAlertControllerStyle.alert)
+                let okAction = UIAlertAction(title:"OK", style: UIAlertActionStyle.default){
+                    
+                    action -> Void in
+                    
+                }
+                enterAlert.addAction(okAction)
+                self.present(enterAlert, animated:true,completion:nil)
                 
             }
-            enterAlert.addAction(okAction)
-            self.present(enterAlert, animated:true,completion:nil)
             
-        }
-        
-        if userPassword != userPasswordStored {
-            let enterAlert = UIAlertController(title:"Alert", message: "入力事項が違います", preferredStyle:  UIAlertControllerStyle.alert)
-            let okAction = UIAlertAction(title:"OK", style: UIAlertActionStyle.default){
-                
-                action -> Void in
+            if userPassword != userPasswordStored {
+                let enterAlert = UIAlertController(title:"Alert", message: "入力事項が違います", preferredStyle:  UIAlertControllerStyle.alert)
+                let okAction = UIAlertAction(title:"OK", style: UIAlertActionStyle.default){
+                    
+                    action -> Void in
+                    
+                }
+                enterAlert.addAction(okAction)
+                self.present(enterAlert, animated:true,completion:nil)
                 
             }
-            enterAlert.addAction(okAction)
-            self.present(enterAlert, animated:true,completion:nil)
             
-        }
-        
-        
-        if userNameStored == userName {
             
-            if userPasswordStored == userPassword {
+            if userNameStored == userName {
                 
-                // ログイン
-                UserDefaults.standard.set(true, forKey: "isUserLoggedIn")
-                //UserDefaults.standard.synchronize()
-                
-                
-                
-                //次の画面に遷移するコードを書く
-                self.performSegue(withIdentifier: "next", sender: nil)
+                if userPasswordStored == userPassword {
+                    
+                    // ログイン
+                    UserDefaults.standard.set(true, forKey: "isUserLoggedIn")
+                    //UserDefaults.standard.synchronize()
+                    
+                    
+                    
+                    //次の画面に遷移するコードを書く
+                    self.performSegue(withIdentifier: "next", sender: nil)
+                }
             }
         }
+       
     }
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
