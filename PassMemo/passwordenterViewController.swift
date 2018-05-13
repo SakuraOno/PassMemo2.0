@@ -33,12 +33,12 @@ class passwordenterViewController: UIViewController, UITextFieldDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
-//
-//        userNameTextField.becomeFirstResponder()
-//     //   userNameTextField.resighFirstResponder()
-//
-//        userPasswordTextField.becomeFirstResponder()
-//     //   userPasswordTextField.resighFirstResponder()
+        //
+        //        userNameTextField.becomeFirstResponder()
+        //     //   userNameTextField.resighFirstResponder()
+        //
+        //        userPasswordTextField.becomeFirstResponder()
+        //     //   userPasswordTextField.resighFirstResponder()
         
         // デリゲート（移譲）を指定
         self.userNameTextField.delegate = self
@@ -84,9 +84,6 @@ class passwordenterViewController: UIViewController, UITextFieldDelegate {
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         
-        
-        
-        
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
@@ -98,7 +95,7 @@ class passwordenterViewController: UIViewController, UITextFieldDelegate {
     }
     
     @IBAction func loginButtonTapped(_ sender: Any) {
-    
+        
         userName = userNameTextField.text
         userPassword = userPasswordTextField.text
         userNameStored = UserDefaults.standard.string(forKey: "userName")
@@ -119,76 +116,73 @@ class passwordenterViewController: UIViewController, UITextFieldDelegate {
             self.present(enterAlert, animated:true,completion:nil)
             
         }
- 
         
-        func viewDidAppear () {
-            if userPassword.isEmpty {
-                let enterAlert = UIAlertController(title:"Alert", message: "必要事項を入力してください", preferredStyle:  UIAlertControllerStyle.alert)
-                let okAction = UIAlertAction(title:"OK", style: UIAlertActionStyle.default){
-                    
-                    action -> Void in
-                    
-                }
+        
+        
+        if userPassword.isEmpty {
+            let enterAlert = UIAlertController(title:"Alert", message: "必要事項を入力してください", preferredStyle:  UIAlertControllerStyle.alert)
+            let okAction = UIAlertAction(title:"OK", style: UIAlertActionStyle.default){
                 
-                enterAlert.addAction(okAction)
-                self.present(enterAlert, animated:true,completion:nil)
+                action -> Void in
                 
             }
             
-            if userName != userNameStored {
-                let enterAlert = UIAlertController(title:"Alert", message: "入力事項が違います", preferredStyle:  UIAlertControllerStyle.alert)
-                let okAction = UIAlertAction(title:"OK", style: UIAlertActionStyle.default){
-                    
-                    action -> Void in
-                    
-                }
-                enterAlert.addAction(okAction)
-                self.present(enterAlert, animated:true,completion:nil)
+            enterAlert.addAction(okAction)
+            self.present(enterAlert, animated:true,completion:nil)
+            
+        }
+        
+        if userName != userNameStored {
+            let enterAlert = UIAlertController(title:"Alert", message: "入力事項が違います", preferredStyle:  UIAlertControllerStyle.alert)
+            let okAction = UIAlertAction(title:"OK", style: UIAlertActionStyle.default){
+                
+                action -> Void in
                 
             }
+            enterAlert.addAction(okAction)
+            self.present(enterAlert, animated:true,completion:nil)
             
-            if userPassword != userPasswordStored {
-                let enterAlert = UIAlertController(title:"Alert", message: "入力事項が違います", preferredStyle:  UIAlertControllerStyle.alert)
-                let okAction = UIAlertAction(title:"OK", style: UIAlertActionStyle.default){
-                    
-                    action -> Void in
-                    
-                }
-                enterAlert.addAction(okAction)
-                self.present(enterAlert, animated:true,completion:nil)
+        }
+        
+        if userPassword != userPasswordStored {
+            let enterAlert = UIAlertController(title:"Alert", message: "入力事項が違います", preferredStyle:  UIAlertControllerStyle.alert)
+            let okAction = UIAlertAction(title:"OK", style: UIAlertActionStyle.default){
+                
+                action -> Void in
                 
             }
+            enterAlert.addAction(okAction)
+            self.present(enterAlert, animated:true,completion:nil)
             
+        }
+        
+        
+        if userNameStored == userName {
             
-            if userNameStored == userName {
+            if userPasswordStored == userPassword {
                 
-                if userPasswordStored == userPassword {
-                    
-                    // ログイン
-                    UserDefaults.standard.set(true, forKey: "isUserLoggedIn")
-                    //UserDefaults.standard.synchronize()
-                    
-                    
-                    
-                    //次の画面に遷移するコードを書く
-                    self.performSegue(withIdentifier: "next", sender: nil)
-                }
+                // ログイン
+                UserDefaults.standard.set(true, forKey: "isUserLoggedIn")
+                //UserDefaults.standard.synchronize()
+                //次の画面に遷移するコードを書く
+                self.performSegue(withIdentifier: "next", sender: self)
             }
         }
-       
+        
+        
     }
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-
+        
         userNameTextField.resignFirstResponder()
         userPasswordTextField.resignFirstResponder()
         return true
         
     }
-
-
     
-
+    
+    
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
