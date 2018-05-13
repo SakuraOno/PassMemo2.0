@@ -326,7 +326,7 @@
 				PROVISIONING_PROFILE = "940fd88a-bea7-4662-a5df-a1ad8a547e97";
 				PROVISIONING_PROFILE_SPECIFIER = "L10-OnoSakura-Developement";
 				SWIFT_VERSION = 4.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -348,7 +348,7 @@
 				PROVISIONING_PROFILE = "aa71b2c6-29ae-4fd5-a70b-02de65a8c227";
 				PROVISIONING_PROFILE_SPECIFIER = "L10-Ono-Distribution";
 				SWIFT_VERSION = 4.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
