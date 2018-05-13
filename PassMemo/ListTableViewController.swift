@@ -27,7 +27,6 @@ class ListTableViewController: UITableViewController {
         
         tableView.delegate = self
         tableView.dataSource = self
-    
     }
     
     //セクション数を指定
@@ -51,27 +50,27 @@ class ListTableViewController: UITableViewController {
         cell.passwordLabel.text = nowIndexPathDictionary["password"]
         
         return cell
+        
     }
     
     //タップした時の処理
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        
         // 次の画面へ移動
-        performSegue(withIdentifier: "next", sender: wordArray[indexPath.row])
+        performSegue(withIdentifier: "toDetail", sender: wordArray[indexPath.row])
     }
     
     //prepareは遷移するときにデータを渡すメソッド
     //funcって書いてるのはメソッド
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         
-        //
-        let detailVC = segue.destination as! DetailViewController
-        
-        // ラベルのインスタンス作成のため
-        detailVC.nameLabel.text = (sender as! Dictionary<String, String>)["name"]
-        detailVC.passwordLabel.text = (sender as! Dictionary<String, String>)["password"]
-         detailVC.memoLabel.text = (sender as! Dictionary<String, String>)["memo"]
-    
+        if segue.identifier == "toAdd"{
+            
+        } else if  segue.identifier == "toDetail" {
+            let detailVC = segue.destination as! DetailViewController
+            // ラベルのインスタンス作成のため
+            detailVC.wordDic = sender as! Dictionary<String, String>
+           
+        }
     }
     
     func ListtableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
@@ -97,7 +96,6 @@ class ListTableViewController: UITableViewController {
         return [deleteButton]
     }
     
-        
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
         

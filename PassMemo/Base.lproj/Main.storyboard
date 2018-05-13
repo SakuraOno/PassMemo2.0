@@ -247,12 +247,12 @@
                     <navigationItem key="navigationItem" title="パスワード一覧" id="31n-o3-umK">
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="uQN-lZ-6eA">
                             <connections>
-                                <segue destination="43q-gq-p5t" kind="show" id="gha-5e-Hbk"/>
+                                <segue destination="43q-gq-p5t" kind="show" identifier="toAdd" id="gha-5e-Hbk"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
                     <connections>
-                        <segue destination="8wv-Bo-euB" kind="show" identifier="next" id="0E1-Fw-j9e"/>
+                        <segue destination="8wv-Bo-euB" kind="show" identifier="toDetail" id="0E1-Fw-j9e"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="yH5-bf-U6l" userLabel="First Responder" sceneMemberID="firstResponder"/>
